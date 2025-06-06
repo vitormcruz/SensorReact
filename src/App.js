@@ -3,6 +3,7 @@ import './App.css';
 import Accelerometer from "./components/accelerometer/Accelerometer";
 import Thermometer from "./components/thermometer/Thermometer";
 import HumidityDrop from "./components/humidity/Humidity";
+import Luminosity from "./components/luminosity/Luminosity";
 
 let initialized = false;
 
@@ -38,16 +39,14 @@ function App() {
 
     return (
       <div className="App">
-          Acceleration: {sensorData.accelaration} <br/>
           <Accelerometer acceleration={sensorData.accelaration} minAccel={0} maxAccel={10} />
-          Humidity: {sensorData.humidity} <br/>
           <HumidityDrop humidity={sensorData.humidity} minHumidity={0} maxHumidity={100} />
           LightIntensity: {sensorData.lightIntensity} <br/>
+          <Luminosity luminosity={sensorData.lightIntensity} maxLuminosity={1000} />
           Position: X: {sensorData.position.x} - Y: {sensorData.position.y} - Z: {sensorData.position.z} <br/>
           Pressure: {sensorData.pressure} <br/>
 
           <Thermometer temperature={sensorData.temperature} minTemp={0} maxTemp={50} />
-          Temperature: {sensorData.temperature} <br/>
       </div>
     );
 }
