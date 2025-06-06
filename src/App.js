@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import Thermometer from "./components/Thermometer";
 
 let initialized = false;
 
@@ -11,7 +12,6 @@ function initializeApp(props){
     // Must not be inside any loops or conditions, otherwise the React hook will not work.
     setInterval(() => {
         props.setSensorData(generateSensorData());
-        console.log(props.sensorData);
     }, 5000);
 }
 
@@ -25,7 +25,7 @@ function generateSensorData() {
             z: Math.random() * 100
           },
           pressure: Math.random() * 1000,
-          temperature: Math.random() * 20
+          temperature: Math.random() * 50
   };
 }
 
@@ -41,6 +41,8 @@ function App() {
           LightIntensity: {sensorData.lightIntensity} <br/>
           Position: X: {sensorData.position.x} - Y: {sensorData.position.y} - Z: {sensorData.position.z} <br/>
           Pressure: {sensorData.pressure} <br/>
+
+          <Thermometer temperature={sensorData.temperature} minTemp={0} maxTemp={50} />
           Temperature: {sensorData.temperature} <br/>
       </div>
     );
