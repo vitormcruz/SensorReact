@@ -14,29 +14,32 @@ const Accelerometer = ({ acceleration, minAccel, maxAccel }) => {
 
   return (
     <div className="accelerometer-container">
-      <svg width={width} height={height}>
-        {/* Background bar (gray) */}
-        <rect
-          x="0"
-          y="0"
-          width={width}
-          height={height}
-          className="accelerometer-background"
-          rx="4"
-          ry="4"
-        />
+      <h3>Acceleration: {acceleration.toFixed(1)}°C</h3>
+      <div className="accelerometer-svg-container">
+        <svg width={width} height={height}>
+          {/* Background bar (gray) */}
+          <rect
+            x="0"
+            y="0"
+            width={width}
+            height={height}
+            className="accelerometer-background"
+            rx="4"
+            ry="4"
+          />
 
-        {/* Fill bar (green) */}
-        <rect
-          x="0"
-          y="0"
-          width={fillWidth}
-          height={height}
-          className="accelerometer-fill"
-          rx="4"
-          ry="4"
-        />
-      </svg>
+          {/* Fill bar (green) */}
+          <rect
+            x="0"
+            y="0"
+            width={fillWidth}
+            height={height}
+            className="accelerometer-fill"
+            rx="4"
+            ry="4"
+          />
+        </svg>
+      </div>
     </div>
   );
 };

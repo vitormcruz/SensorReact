@@ -1,5 +1,9 @@
 .accelerometer-container {
   margin: 20px 0;
+  text-align: center;
+}
+
+.accelerometer-svg-container {
   display: flex;
   justify-content: center;
 }
