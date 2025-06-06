@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Accelerometer from "./components/accelerometer/Accelerometer";
 import Thermometer from "./components/thermometer/Thermometer";
+import HumidityDrop from "./components/humidity/Humidity";
 
 let initialized = false;
 
@@ -40,6 +41,7 @@ function App() {
           Acceleration: {sensorData.accelaration} <br/>
           <Accelerometer acceleration={sensorData.accelaration} minAccel={0} maxAccel={10} />
           Humidity: {sensorData.humidity} <br/>
+          <HumidityDrop humidity={sensorData.humidity} minHumidity={0} maxHumidity={100} />
           LightIntensity: {sensorData.lightIntensity} <br/>
           Position: X: {sensorData.position.x} - Y: {sensorData.position.y} - Z: {sensorData.position.z} <br/>
           Pressure: {sensorData.pressure} <br/>
