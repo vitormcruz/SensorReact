@@ -1,0 +1,13 @@
+.accelerometer-container {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.accelerometer-background {
+  fill: #cccccc;
+}
+
+.accelerometer-fill {
+  fill: #4CAF50;
+}

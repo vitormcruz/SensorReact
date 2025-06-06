@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
-import Thermometer from "./components/Thermometer";
+import Accelerometer from "./components/accelerometer/Accelerometer";
+import Thermometer from "./components/thermometer/Thermometer";
 
 let initialized = false;
 
@@ -37,6 +38,7 @@ function App() {
     return (
       <div className="App">
           Acceleration: {sensorData.accelaration} <br/>
+          <Accelerometer acceleration={sensorData.accelaration} minAccel={0} maxAccel={10} />
           Humidity: {sensorData.humidity} <br/>
           LightIntensity: {sensorData.lightIntensity} <br/>
           Position: X: {sensorData.position.x} - Y: {sensorData.position.y} - Z: {sensorData.position.z} <br/>

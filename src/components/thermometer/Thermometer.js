@@ -9,16 +9,16 @@ function Thermometer({ temperature, minTemp = 0, maxTemp = 50 }) {
             <h3>Temperature: {temperature.toFixed(1)}°C</h3>
             <div className="thermometer-svg-container">
                 <svg width="50" height="200" viewBox="0 0 50 200">
-                    {/* Contorno do termômetro */}
+                    {/* Thermometer outline */}
                     <rect x="20" y="10" width="10" height="150" rx="5" ry="5" className="thermometer-outline" />
 
-                    {/* Bulbo do termômetro */}
+                    {/* Thermometer bulb */}
                     <circle cx="25" cy="160" r="15" className="thermometer-bulb" />
 
-                    {/* Mercúrio no bulbo */}
+                    {/* Mercury in the bulb */}
                     <circle cx="25" cy="160" r="13" className="thermometer-mercury" />
 
-                    {/* Mercúrio no tubo */}
+                    {/* Mercury in the tube */}
                     <rect
                         x="22"
                         y={10 + (150 - 150 * percentage / 100)}
@@ -27,7 +27,7 @@ function Thermometer({ temperature, minTemp = 0, maxTemp = 50 }) {
                         className="thermometer-mercury"
                     />
 
-                    {/* Marcações de temperatura (opcional) */}
+                    {/* Temperature markings (optional) */}
                     {[0, 25, 50, 75, 100].map((mark, i) => (
                         <React.Fragment key={i}>
                             <line
