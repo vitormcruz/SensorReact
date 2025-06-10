@@ -1,6 +1,8 @@
 .humidity-drop-container {
   margin: 20px 0;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .humidity-drop-svg-container {

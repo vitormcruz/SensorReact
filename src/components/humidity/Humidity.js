@@ -1,7 +1,7 @@
 import React from 'react';
 import './Humidity.css';
 
-const HumidityDrop = ({ humidity, maxHumidity }) => {
+const Humidity = ({ humidity, maxHumidity }) => {
   // Calculates the fill percentage based on min/max values
     const fillPercentage = maxHumidity <= 0 ?
       0 : Math.min(100, Math.max(0, (humidity / maxHumidity) * 100 ));
@@ -46,4 +46,4 @@ const HumidityDrop = ({ humidity, maxHumidity }) => {
   );
 };
 
-export default HumidityDrop;
+export default Humidity;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Accelerometer from "./components/accelerometer/Accelerometer";
 import Thermometer from "./components/thermometer/Thermometer";
-import HumidityDrop from "./components/humidity/Humidity";
+import Humidity from "./components/humidity/Humidity";
 import Luminosity from "./components/luminosity/Luminosity";
 import Pressure from "./components/pressure/Pressure";
 import Position from "./components/position/Position";
@@ -41,12 +41,22 @@ function App() {
 
     return (
       <div className="App">
-          <Accelerometer acceleration={sensorData.accelaration} maxAccel={10} />
-          <HumidityDrop humidity={sensorData.humidity} maxHumidity={100} />
-          <Luminosity luminosity={sensorData.lightIntensity} maxLuminosity={1000} />
-          <Position positionX={sensorData.position.x} positionY={sensorData.position.y}/>
-          <Pressure pressure={sensorData.pressure} maxPressure={4000} />
-          <Thermometer temperature={sensorData.temperature} maxTemp={50} />
+          <h1>React Sensor Application</h1>
+          <h3>An application created to apply learning on React</h3>
+          <div className="sensor-grid">
+              <div className="sensor-row">
+                  <Accelerometer acceleration={sensorData.accelaration} maxAccel={10} />
+                  <Luminosity luminosity={sensorData.lightIntensity} maxLuminosity={1000} />
+                  <Humidity humidity={sensorData.humidity} maxHumidity={100} />
+              </div>
+              <div className="sensor-row">
+                  <Position positionX={sensorData.position.x} positionY={sensorData.position.y}/>
+              </div>
+              <div className="sensor-row">
+                  <Thermometer temperature={sensorData.temperature} maxTemp={50} />
+                  <Pressure pressure={sensorData.pressure} maxPressure={4000} />
+              </div>
+          </div>
       </div>
     );
 }

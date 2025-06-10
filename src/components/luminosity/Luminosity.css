@@ -1,6 +1,8 @@
 .flashlight-container {
   margin: 20px 0;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .flashlight-svg-container {
