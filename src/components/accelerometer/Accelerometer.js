@@ -1,11 +1,10 @@
 import React from 'react';
 import './Accelerometer.css';
 
-const Accelerometer = ({ acceleration, minAccel, maxAccel }) => {
+const Accelerometer = ({ acceleration, maxAccel }) => {
   // Calculate the fill percentage based on min/max values
-  const range = maxAccel - minAccel;
-  const fillPercentage = range <= 0 ?
-      0 : Math.min(100, Math.max(0, ((acceleration - minAccel) / range) * 100 ));
+  const fillPercentage = maxAccel <= 0 ?
+      0 : Math.min(100, Math.max(0, (acceleration / maxAccel) * 100 ));
 
   // SVG dimensions
   const width = 300;
@@ -14,7 +13,7 @@ const Accelerometer = ({ acceleration, minAccel, maxAccel }) => {
 
   return (
     <div className="accelerometer-container">
-      <h3>Acceleration: {acceleration.toFixed(1)}°C</h3>
+      <h3>Acceleration: {acceleration.toFixed(1)} k/h</h3>
       <div className="accelerometer-svg-container">
         <svg width={width} height={height}>
           {/* Background bar (gray) */}

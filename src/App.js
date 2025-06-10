@@ -40,15 +40,12 @@ function App() {
 
     return (
       <div className="App">
-          <Accelerometer acceleration={sensorData.accelaration} minAccel={0} maxAccel={10} />
-          <HumidityDrop humidity={sensorData.humidity} minHumidity={0} maxHumidity={100} />
-          LightIntensity: {sensorData.lightIntensity} <br/>
+          <Accelerometer acceleration={sensorData.accelaration} maxAccel={10} />
+          <HumidityDrop humidity={sensorData.humidity} maxHumidity={100} />
           <Luminosity luminosity={sensorData.lightIntensity} maxLuminosity={1000} />
           Position: X: {sensorData.position.x} - Y: {sensorData.position.y} - Z: {sensorData.position.z} <br/>
-          <Pressure pressure={sensorData.pressure} minPressure={0} maxPressure={4000} />
-          Pressure: {sensorData.pressure} <br/>
-
-          <Thermometer temperature={sensorData.temperature} minTemp={0} maxTemp={50} />
+          <Pressure pressure={sensorData.pressure} maxPressure={4000} />
+          <Thermometer temperature={sensorData.temperature} maxTemp={50} />
       </div>
     );
 }

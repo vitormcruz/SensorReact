@@ -1,11 +1,10 @@
 import React from 'react';
 import './Humidity.css';
 
-const HumidityDrop = ({ humidity, minHumidity, maxHumidity }) => {
+const HumidityDrop = ({ humidity, maxHumidity }) => {
   // Calculates the fill percentage based on min/max values
-  const range = maxHumidity - minHumidity;
-  const fillPercentage = range <= 0 ?
-      0 : Math.min(100, Math.max(0, ((humidity - minHumidity) / range) * 100 ));
+    const fillPercentage = maxHumidity <= 0 ?
+      0 : Math.min(100, Math.max(0, (humidity / maxHumidity) * 100 ));
 
   // SVG dimensions
   const width = 100;

@@ -1,8 +1,8 @@
 import React from 'react';
 import './Pressure.css';
 
-const Pressure = ({ pressure, minPressure, maxPressure }) => {
-    const percentage = (pressure - minPressure) / (maxPressure - minPressure);
+const Pressure = ({ pressure, maxPressure }) => {
+    const percentage = pressure / maxPressure;
     const angle = 180 + (percentage * 360);
 
     // SVG dimensions and positioning
@@ -40,7 +40,7 @@ const Pressure = ({ pressure, minPressure, maxPressure }) => {
             );
 
             // Add tick label
-            const labelValue = Math.round(minPressure + (i * (maxPressure - minPressure) / numTicks));
+            const labelValue = Math.round(i * (maxPressure / numTicks));
             const labelX = centerX + ((radius - 20) * Math.cos(tickRadian));
             const labelY = centerY + ((radius - 20) * Math.sin(tickRadian));
 

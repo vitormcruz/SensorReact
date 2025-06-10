@@ -1,8 +1,8 @@
 import React from 'react';
 import './Thermometer.css';
 
-function Thermometer({ temperature, minTemp = 0, maxTemp = 50 }) {
-    const percentage = Math.min(Math.max((temperature - minTemp) / (maxTemp - minTemp), 0), 1) * 100;
+function Thermometer({ temperature, maxTemp = 50 }) {
+    const percentage = Math.min(Math.max(temperature / maxTemp, 0), 1) * 100;
 
     return (
         <div className="thermometer-container">
@@ -42,7 +42,7 @@ function Thermometer({ temperature, minTemp = 0, maxTemp = 50 }) {
                                 y={10 + (150 * (100 - mark) / 100) + 4}
                                 className="thermometer-text"
                             >
-                                {(minTemp + (maxTemp - minTemp) * mark / 100).toFixed(0)}°
+                                {(maxTemp * mark / 100).toFixed(0)}°
                             </text>
                         </React.Fragment>
                     ))}
