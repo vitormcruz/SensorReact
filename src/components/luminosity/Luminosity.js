@@ -3,9 +3,6 @@ import './Luminosity.css';
 
 const Luminosity = ({ luminosity, maxLuminosity }) => {
   const opacity = luminosity/maxLuminosity;
-  console.log(luminosity);
-  console.log(maxLuminosity);
-  console.log(opacity);
 
   // SVG dimensions
   const width = 200;

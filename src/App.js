@@ -4,6 +4,7 @@ import Accelerometer from "./components/accelerometer/Accelerometer";
 import Thermometer from "./components/thermometer/Thermometer";
 import HumidityDrop from "./components/humidity/Humidity";
 import Luminosity from "./components/luminosity/Luminosity";
+import Pressure from "./components/pressure/Pressure";
 
 let initialized = false;
 
@@ -15,7 +16,7 @@ function initializeApp(props){
     // Must not be inside any loops or conditions, otherwise the React hook will not work.
     setInterval(() => {
         props.setSensorData(generateSensorData());
-    }, 5000);
+    }, 2000);
 }
 
 function generateSensorData() {
@@ -44,6 +45,7 @@ function App() {
           LightIntensity: {sensorData.lightIntensity} <br/>
           <Luminosity luminosity={sensorData.lightIntensity} maxLuminosity={1000} />
           Position: X: {sensorData.position.x} - Y: {sensorData.position.y} - Z: {sensorData.position.z} <br/>
+          <Pressure pressure={sensorData.pressure} minPressure={0} maxPressure={1000} />
           Pressure: {sensorData.pressure} <br/>
 
           <Thermometer temperature={sensorData.temperature} minTemp={0} maxTemp={50} />
