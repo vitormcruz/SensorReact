@@ -28,7 +28,7 @@ function generateSensorData() {
             y: Math.random() * 100,
             z: Math.random() * 100
           },
-          pressure: Math.random() * 1000,
+          pressure: Math.random() * 4000,
           temperature: Math.random() * 50
   };
 }
@@ -45,7 +45,7 @@ function App() {
           LightIntensity: {sensorData.lightIntensity} <br/>
           <Luminosity luminosity={sensorData.lightIntensity} maxLuminosity={1000} />
           Position: X: {sensorData.position.x} - Y: {sensorData.position.y} - Z: {sensorData.position.z} <br/>
-          <Pressure pressure={sensorData.pressure} minPressure={0} maxPressure={1000} />
+          <Pressure pressure={sensorData.pressure} minPressure={0} maxPressure={4000} />
           Pressure: {sensorData.pressure} <br/>
 
           <Thermometer temperature={sensorData.temperature} minTemp={0} maxTemp={50} />
