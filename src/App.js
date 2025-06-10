@@ -5,6 +5,7 @@ import Thermometer from "./components/thermometer/Thermometer";
 import HumidityDrop from "./components/humidity/Humidity";
 import Luminosity from "./components/luminosity/Luminosity";
 import Pressure from "./components/pressure/Pressure";
+import Position from "./components/position/Position";
 
 let initialized = false;
 
@@ -24,9 +25,8 @@ function generateSensorData() {
            humidity: Math.random() * 100,
            lightIntensity: Math.random() * 1000,
            position: {
-            x: Math.random() * 100,
-            y: Math.random() * 100,
-            z: Math.random() * 100
+            x: Math.random() * 100 * Math.sign(Math.random() - 0.5),
+            y: Math.random() * 100 * Math.sign(Math.random() - 0.5),
           },
           pressure: Math.random() * 4000,
           temperature: Math.random() * 50
@@ -34,6 +34,7 @@ function generateSensorData() {
 }
 
 function App() {
+    Math.sign(Math.random() - 0.5)
     const [sensorData, setSensorData] = useState(generateSensorData());
 
     initializeApp({sensorData, setSensorData});
@@ -43,7 +44,7 @@ function App() {
           <Accelerometer acceleration={sensorData.accelaration} maxAccel={10} />
           <HumidityDrop humidity={sensorData.humidity} maxHumidity={100} />
           <Luminosity luminosity={sensorData.lightIntensity} maxLuminosity={1000} />
-          Position: X: {sensorData.position.x} - Y: {sensorData.position.y} - Z: {sensorData.position.z} <br/>
+          <Position positionX={sensorData.position.x} positionY={sensorData.position.y}/>
           <Pressure pressure={sensorData.pressure} maxPressure={4000} />
           <Thermometer temperature={sensorData.temperature} maxTemp={50} />
       </div>
